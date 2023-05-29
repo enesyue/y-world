@@ -1246,26 +1246,6 @@
           "name": "Rose 950",
           "slug": "rose-950",
           "color": "#4c0519"
-        },
-        {
-          "name": "Primary",
-          "slug": "primary",
-          "color": "#bb004b"
-        },
-        {
-          "name": "Secondary",
-          "slug": "secondary",
-          "color": "#77048f"
-        },
-        {
-          "name": "Tertiary",
-          "slug": "tertiary",
-          "color": "#da2a00"
-        },
-        {
-          "name": "Default",
-          "slug": "default",
-          "color": "#3c3c3c"
         }
       ]
     },
