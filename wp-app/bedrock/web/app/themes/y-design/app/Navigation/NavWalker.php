@@ -8,11 +8,7 @@ class Nav_Walker extends Walker_Nav_menu {
     }
      
     function start_lvl(&$output, $depth = 0, $args = null) 
-    {
-        $depth_class = "child-" . $depth;
-
-        $output .= "<ul class='" . $depth_class . "'>";
-            
+    {           
     }
 
     function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
@@ -47,12 +43,13 @@ class Nav_Walker extends Walker_Nav_menu {
                 >";
               
             }
-            else if ($depth === 1){
-              $output .= "<li><a class='$a_classname'>$titleName</a></div></li> </ul>";
+            else{
+             $output .= "<li><a class='$a_classname'>$titleName</a></li>";
             }
-            else {
-                $output .= "</div> </ul>";
-            }
+    }
+
+    function createsubitems() {
+
     }
 
     function end_el(&$output, $item, $depth = 0, $args = null) 
