@@ -8,7 +8,7 @@ class Nav_Walker extends Walker_Nav_menu {
     }
      
     function start_lvl(&$output, $depth = 0, $args = null) 
-    {           
+    {          
     }
 
     function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
@@ -19,8 +19,12 @@ class Nav_Walker extends Walker_Nav_menu {
 
             $ul_classname = $this->ul_class_name;
 
-            if($depth === 0) {
+            $childrenExist = $args -> walker -> has_children;
 
+            $subitem = $item -> menu_item_parent;
+
+            if($subitem == 0) {
+              if($childrenExist) {
                 $output .= "<ul class='$ul_classname'>
                 <div x-data='{ showDropdown: false }'>
                 
@@ -40,17 +44,17 @@ class Nav_Walker extends Walker_Nav_menu {
                   @mouseover='showDropdown = true'
                   @mouseleave='showDropdown = false'
                   class='pt-2'
-                >";
-              
+                ";
+              }
+              else {
+                $output .= "<ul class='$ul_classname'><a class='$a_classname'>$titleName</a></ul>";
+              }         
             }
             else{
-             $output .= "<li><a class='$a_classname'>$titleName</a></li>";
+             $output .= "<li><a class='$a_classname' href='/$titleName'>$titleName</a></li>";
             }
     }
 
-    function createsubitems() {
-
-    }
 
     function end_el(&$output, $item, $depth = 0, $args = null) 
     {
