@@ -4,10 +4,11 @@ namespace App\Blocks;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Blocks\Base\BlockBuilder;
+use App\Blocks\Base\BlockFilter;
 
-class Accordion extends BlockBuilder {
+class Modal extends BlockBuilder {
 
-    public const NAME = 'accordion';
+    public const NAME = 'modal';
     public $icon;
     public $block;
 
@@ -21,12 +22,12 @@ class Accordion extends BlockBuilder {
     {
         $args = [
             'name'				=> static::NAME,
-            'title'				=>__('Akkordeon', 'sage'),
-            'description'		=>__('Akkordeon', 'sage'),
+            'title'				=>__('Modal', 'sage'),
+            'description'		=>__('Modal', 'sage'),
             'render_callback'   => [$this, 'render'],
             'category'			=> 'y-blocks',
             
-            'keywords'			=> array('Akkordeon', 'Accordion'),
+            'keywords'			=> array('Modal', 'Popup'),
             'mode' 				=> 'edit'
         ];
 

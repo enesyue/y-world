@@ -15,6 +15,9 @@ add_filter('excerpt_more', function () {
     return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('Continued', 'sage'));
 });
 
+/**
+ * Remove WP specific scripts / styles / emojis.
+ */
 add_filter( 'wp_enqueue_scripts', function () {
     wp_dequeue_script( 'jquery');
     wp_deregister_script( 'jquery');
