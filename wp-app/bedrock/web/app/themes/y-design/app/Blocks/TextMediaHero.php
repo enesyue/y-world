@@ -4,11 +4,11 @@ namespace App\Blocks;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Blocks\Base\BlockBuilder;
-use App\Blocks\Base\BlockFilter;
 
-class Modal extends BlockBuilder {
-
-    public const NAME = 'modal';
+class TextMediaHero extends BlockBuilder
+{
+    public const NAME = 'text-media-hero';
+    public $shownName = "Text Media Hero";
     public $icon;
     public $block;
 
@@ -22,12 +22,12 @@ class Modal extends BlockBuilder {
     {
         $args = [
             'name'				=> static::NAME,
-            'title'				=>__('Modal', 'sage'),
-            'description'		=>__('Modal', 'sage'),
+            'title'				=>__("$this->shownName", 'sage'),
+            'description'		=>__("$this->shownName", 'sage'),
             'render_callback'   => [$this, 'render'],
             'category'			=> 'y-blocks',
             
-            'keywords'			=> array('Modal', 'Popup'),
+            'keywords'			=> ['y-design', 'y-block', $this->shownName, static::NAME],
             'mode' 				=> 'edit'
         ];
 
@@ -37,13 +37,33 @@ class Modal extends BlockBuilder {
     public function registerFields()
     {
         $this->block
+            ->addMessage('_', "<h2>$this->shownName</h2>", [
+                'label' => '',
+            ])
             ->addTab(static::NAME, [
                 'label' => __('Inhalt', 'nova'),
             ])
-                ->addText('text_field', [
-                    'label' => 'Text Field',
+                ->addWysiwyg('wysiwyg_field', [
+                    'label' => 'WYSIWYG Field',
                     'instructions' => '',
                     'required' => 0,
+                    'conditional_logic' => [],
+                    'wrapper' => [
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ],
+                    'default_value' => '',
+                    'tabs' => 'all',
+                    'toolbar' => 'full',
+                    'media_upload' => 1,
+                    'delay' => 0,
+                ])
+                ->addEmail('email_field', [
+                    'label' => 'Email Field',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => [],
                     'wrapper' => [
                         'width' => '',
                         'class' => '',
@@ -53,25 +73,6 @@ class Modal extends BlockBuilder {
                     'placeholder' => '',
                     'prepend' => '',
                     'append' => '',
-                    'maxlength' => '',
-                ])
-                ->addCheckbox('checkbox_field', [
-                    'label' => 'Checkbox Field',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => [],
-                    'wrapper' => [
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ],
-                    'choices' => [],
-                    'allow_custom' => 0,
-                    'save_custom' => 0,
-                    'default_value' => [],
-                    'layout' => 'vertical',
-                    'toggle' => 0,
-                    'return_format' => 'value',
                 ])
 
         ; // Hier schließt sich der block

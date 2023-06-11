@@ -56,7 +56,8 @@ if (! function_exists('\Roots\bootloader')) {
 
 collect(['setup',
         'filters',
-        'helpers/blocks'])
+        'helpers/blocks',
+        'helpers/posts'])
     ->each(function ($file) {
         if (! locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(

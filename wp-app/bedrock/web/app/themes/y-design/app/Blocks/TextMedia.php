@@ -5,10 +5,10 @@ namespace App\Blocks;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Blocks\Base\BlockBuilder;
 
-class Accordion extends BlockBuilder
+class TextMedia extends BlockBuilder
 {
-    public const NAME = 'accordion';
-    public $shownName = "Akkordeon";
+    public const NAME = 'text-media';
+    public $shownName = "Text Media";
     public $icon;
     public $block;
 
@@ -43,8 +43,23 @@ class Accordion extends BlockBuilder
             ->addTab(static::NAME, [
                 'label' => __('Inhalt', 'nova'),
             ])
-                ->addWysiwyg('wysiwyg_field', [
-                    'label' => 'WYSIWYG Field',
+                ->addText('text_field', [
+                    'label' => 'Text Field',
+                    'instructions' => '',
+                    'required' => 0,
+                    'wrapper' => [
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ],
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                    'maxlength' => '',
+                ])
+                ->addCheckbox('checkbox_field', [
+                    'label' => 'Checkbox Field',
                     'instructions' => '',
                     'required' => 0,
                     'conditional_logic' => [],
@@ -53,11 +68,13 @@ class Accordion extends BlockBuilder
                         'class' => '',
                         'id' => '',
                     ],
-                    'default_value' => '',
-                    'tabs' => 'all',
-                    'toolbar' => 'full',
-                    'media_upload' => 1,
-                    'delay' => 0,
+                    'choices' => [],
+                    'allow_custom' => 0,
+                    'save_custom' => 0,
+                    'default_value' => [],
+                    'layout' => 'vertical',
+                    'toggle' => 0,
+                    'return_format' => 'value',
                 ])
 
         ; // Hier schließt sich der block

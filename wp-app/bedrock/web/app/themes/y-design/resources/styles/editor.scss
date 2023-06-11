@@ -1,0 +1,43 @@
+.wp-block {
+    max-width: initial;
+    margin-bottom: 3rem !important;
+    margin: 0 10%;
+}
+
+.acf-block-body .acf-block-fields {
+    border: #e0e0e0 solid 1px;
+    box-shadow: 1px 1px 20px 7px #eee;
+}
+
+.acf-field .acf-label label {
+    font-weight: 700 !important;
+    font-size: 14px;
+}
+
+.acf-fields > .acf-field:first-child {
+    border-top: none;
+    margin-top: 0;
+    background: #f9f9f9;
+
+    label {
+        font-weight: 800;
+        font-size: 24px;
+        /* font-family: monospace; */
+        text-transform: uppercase;
+    }
+}
+
+.acf-repeater {
+    label {
+        font-size: 14px !important;
+    }
+}
+
+.acf-fields > .acf-tab-wrap .acf-tab-group {
+    border-top: unset !important;
+}
+
+.acf-block-body .acf-block-fields .acf-tab-wrap .acf-tab-group {
+    margin-left: 0;
+    padding: 0px 20px 0 !important;
+}

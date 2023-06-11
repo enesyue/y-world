@@ -3,9 +3,10 @@
 namespace App\Blocks\Base;
 
 use Illuminate\Support\Facades\View;
+use Composer\ClassMapGenerator\ClassMapGenerator;
 
-class BlockBuilder {
-
+class BlockBuilder
+{
     /**
      * Get all child classes from parent class.
      *
@@ -13,12 +14,13 @@ class BlockBuilder {
      */
     public function getAllChildClasses()
     {
-        $childClasses = [];
+        $childClassesPath = ClassMapGenerator::createMap(__DIR__ . '/..');
         $parentClass = get_called_class();
+        $childClasses = [];
 
-        foreach (get_declared_classes() as $class) {
-            if (is_subclass_of($class, $parentClass)) {
-                $childClasses[] = $class;
+        foreach($childClassesPath as $key=>$value) {
+            if($key != $parentClass) {
+                $childClasses[] = $key;
             }
         }
 
@@ -136,5 +138,16 @@ class BlockBuilder {
         echo "<div>Not found</div>";
         
         return;
+    }
+
+    /**
+     * Static method to create instance of itself and start initializing (+ adding) everything to WP core.
+     *
+     * @return void
+     */
+    public static function getBlocks()
+    {
+        $instance = new self();
+        add_action( 'admin_init', array( $instance, 'initAllBlocks' ) );
     }
 }

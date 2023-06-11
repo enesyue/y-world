@@ -59,7 +59,7 @@
     "wpackagist-theme/twentytwentythree": "^1.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.12",
     "stoutlogic/acf-builder": "^1.12",
-    "haydenpierce/class-finder": "^0.5.2"
+    "composer/class-map-generator": "^1.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
