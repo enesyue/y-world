@@ -30,16 +30,17 @@
           </a>
         </h1>
       </div>
-
-      <div x-data="{openMenu : false}" :class="openMenu ? 'overflow-hidden' : 'overflow-visible'">
-
-        <style>
-         [x-cloak] {
-          display: none !important;
-         }
-        </style>
-      
       <div class="flex flex-1 items-center justify-end gap-8">
+
+            <div x-data="{openMenu : false}" :class="openMenu ? 'overflow-hidden' : 'overflow-visible'">
+
+              <style>
+              [x-cloak] {
+                display: none !important;
+              }
+              </style>
+      
+      
         <!-- Logo 
         <h1 class="h6 mb-0">
          

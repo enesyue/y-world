@@ -47,7 +47,7 @@ class Nav_Walker extends Walker_Nav_menu {
                               </span>
                           </button>
                           <div class='absolute hidden peer-hover:flex hover:flex
-                           bg-white w-1/6 max-w-xl drop-shadow-lg backdrop-blur-3xl'>
+                           bg-white w-1/6 max-w-xl min-w-auto drop-shadow-lg backdrop-blur-3xl'>
                         ";
               
             }
