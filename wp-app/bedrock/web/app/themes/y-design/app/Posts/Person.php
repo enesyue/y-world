@@ -61,7 +61,9 @@ class Person extends PostBuilder
             // "cptp_permalink_structure" => "/%department%/person/%postname%/",
             'show_in_rest' => true, // Gutenberg support
         ];
-        register_post_type(self::NAME, $args);
+        register_post_type(static::NAME, $args);
+
+        /* var_dump('tssta'); */
 
         register_taxonomy(
             self::DEPARTMENT_TAX,
@@ -102,6 +104,31 @@ class Person extends PostBuilder
 
     public function registerFields()
     {
+        $this->fields
+        ->addTab(static::NAME, [
+            'label' => __('Inhalt', 'nova'),
+        ])
+            ->addWysiwyg('wysiwyg_field', [
+                'label' => 'WYSIWYG Field',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => [],
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => '',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+                'delay' => 0,
+            ])
 
+        ; // Hier schließt sich der block
+
+        $this->fields->setLocation("post_type", "==", static::NAME);
+
+        acf_add_local_field_group($this->fields->build());
     }
 }

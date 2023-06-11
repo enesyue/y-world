@@ -43,12 +43,16 @@ class PostBuilder
                 $method = $reflectionClass->getMethod("registerPost");
                 $method->invoke(new $childClass());
             }
+            if ($reflectionClass->hasMethod("registerFields")) {
+                $method = $reflectionClass->getMethod("registerFields");
+                $method->invoke(new $childClass());
+            }
         }
     }
 
     public static function getPosts()
     {
         $instance = new self();
-        add_action( 'admin_init', array( $instance, 'initAllPosts' ) );
+        add_action( 'init', array( $instance, 'initAllPosts' ) );
     }
 }
