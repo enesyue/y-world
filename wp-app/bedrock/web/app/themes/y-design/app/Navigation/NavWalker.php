@@ -29,7 +29,7 @@ class Nav_Walker extends Walker_Nav_menu {
               $output .= "
                           <div>
                           <button class='peer $li_classname' type='button'>
-                              <a href='/$titleName' class='$a_classname flex flex-row gap-1'>
+                              <a class='$a_classname flex flex-row gap-1'>
                               $titleName
                               <span class='mt-0.5 w-5'>
                               <svg
@@ -47,7 +47,7 @@ class Nav_Walker extends Walker_Nav_menu {
                               </span>
                           </button>
                           <div class='absolute hidden peer-hover:flex hover:flex
-                           bg-white w-1/6 drop-shadow-lg backdrop-blur-3xl'>
+                           bg-white w-1/6 max-w-xl drop-shadow-lg backdrop-blur-3xl'>
                         ";
               
             }

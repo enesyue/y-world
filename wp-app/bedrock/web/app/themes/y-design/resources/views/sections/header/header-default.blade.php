@@ -39,7 +39,7 @@
          }
         </style>
       
-      <header class="flex flex-1 items-center justify-end gap-8">
+      <div class="flex flex-1 items-center justify-end gap-8">
         <!-- Logo 
         <h1 class="h6 mb-0">
          
@@ -62,12 +62,12 @@
         </button>
       
         <!-- Navbar -->
-        <nav class="hidden md:flex">
+        <nav class="hidden md:flex justify-end">
          <ul class="flex flex-row w-86 gap-2"> 
             @if (has_nav_menu('primary_navigation'))
             {!! wp_nav_menu(['theme_location' => 'primary_navigation',  
             'container' => false,
-            'walker' => new Nav_Walker("", "inline-flex py-2 px-3 hover:text-slate-500 rounded", "flex flex-col py-2 px-3 hover:text-slate-500 hover:px-[3px] hover:ease-linear duration-300 rounded ml-5 mb-1") ,
+            'walker' => new Nav_Walker("", "inline-flex py-2 px-3 hover:text-slate-500 rounded", "flex flex-col py-2 px-3 hover:text-slate-500 hover:translate-x-6 hover:ease-linear duration-300 hover:border-l-4 border-indigo-200 hover:border-slate-500 ml-3 mb-1") ,
             'echo' => false,
             'depth' => 0,
             'items_wrap' => '%3$s' 
@@ -101,7 +101,7 @@
               </button>
       
         </nav>
-      </header>
+      </div>
       
       </div>
 
