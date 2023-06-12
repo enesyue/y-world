@@ -17,18 +17,19 @@ class Nav_Walker extends Walker_Nav_menu {
 
             $li_classname = $this->liClassName;
 
+            $a_dropdown_classname = $this->aDropDownClassName;
+
             $childrenExist = $args -> walker -> has_children;
 
             $subitem = $item -> menu_item_parent;
 
         if ($subitem == 0)
         {
-        
             if($childrenExist)
             {
               $output .= "
                           <div>
-                          <button class='peer $li_classname' type='button'>
+                          <button class='peer $li_classname' type='button' onclick=''>
                               <a class='$a_classname flex flex-row gap-1'>
                               $titleName
                               <span class='mt-0.5 w-5'>
@@ -46,9 +47,11 @@ class Nav_Walker extends Walker_Nav_menu {
                               </a>
                               </span>
                           </button>
-                          <div class='absolute hidden peer-hover:flex hover:flex
+                          <div id='dropdown-depth-one' class='md:absolute hidden md:peer-hover:flex md:hover:flex
                            bg-white w-1/6 max-w-xl min-w-auto drop-shadow-lg backdrop-blur-3xl'>
                         ";
+                        
+              
               
             }
 
@@ -67,7 +70,7 @@ class Nav_Walker extends Walker_Nav_menu {
       else 
       {
 
-        $output .= "<a href='/$titleName' class='$this->aDropDownClassName'>$titleName</a>";
+        $output .= "<a href='/$titleName' class='$a_dropdown_classname'>$titleName</a>";
 
       }
     }
