@@ -64,9 +64,9 @@ collect(['setup', 'filters'])
         }
     });
 
-    function register_navwalker (){
-
+    function register_navwalker(){
         require ('app/Navigation/NavWalker.php');
+        require ('app/Navigation/NavWalker-Footer.php');
     }
     
     add_action('after_setup_theme', 'register_navwalker');

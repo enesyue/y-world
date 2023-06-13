@@ -181,9 +181,10 @@
         </ul>
       </div>
 
-      <div
+     <div
         class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2"
       >
+      <!---
         <div class="text-center sm:text-left">
           <p class="text-lg font-medium">About Us</p>
 
@@ -400,7 +401,17 @@
               </address>
             </li>
           </ul>
-        </div>
+        </div> -->
+        @if (has_nav_menu('footer_navigation'))
+            {!! wp_nav_menu(['theme_location' => 'footer_navigation',  
+            'container' => false,
+            'walker' => new NavWalkerFooter(),
+            'echo' => false,
+            'depth' => 0,
+            'items_wrap' => '%3$s' 
+            ])!!}
+        @endif
+
       </div>
     </div>
 
