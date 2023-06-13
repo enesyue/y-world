@@ -2,6 +2,12 @@
 
 class NavWalkerFooter extends Walker_Nav_Menu {
 
+function start_lvl(&$output,$depth  = 0,$args  = null)
+{
+
+    $output .= "";
+}
+
 function start_el(&$output, $item, $depth = 0,  $args = null, $id = 0) 
 {
     $titleName = $item -> title;
