@@ -1,3 +1,4 @@
 # Application
 # wp-app
 wp-data
+wp-app/logs/nginx/access.log
