@@ -5,6 +5,9 @@
 /////////////////
 ///////////COMMON
 /////////////////
-/* @import 'common/text';
-@import 'common/global';
- */
+//@import 'common/text';
+//@import 'common/global';
+
+[x-cloak] {
+  display: none !important;
+}

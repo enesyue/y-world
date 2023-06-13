@@ -33,3 +33,12 @@ add_filter( 'wp_enqueue_scripts', function () {
 	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );	
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 });
+
+/**
+ * Create and add Navwalker to WP Core.
+ */
+function register_navwalker (){
+    require ('app/Navigation/NavWalker.php');
+}
+
+add_action('after_setup_theme', 'register_navwalker');

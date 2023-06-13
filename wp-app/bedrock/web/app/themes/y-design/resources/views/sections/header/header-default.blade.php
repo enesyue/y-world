@@ -1,163 +1,153 @@
-<header aria-label="Site Header" class="border-b border-gray-100">
-  <div class="container">
-    <div
-      class="flex h-16 max-w-screen-2xl items-center justify-between"
-    >
-      <div class="flex items-center gap-4">
-        <button type="button" class="p-2 lg:hidden">
-          <svg
-            class="h-6 w-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-
-        <h1 class="h6 mb-0">
-          <a class="navbar-brand" href="{{ home_url('/') }}">
-              <img class="img-fluid desktop_logo"
-                  src="@asset('images/logo.svg')"
-                  alt="{!! $siteName !!}">
-              <span class="visually-hidden">{!! $siteName !!}</span>
-          </a>
-        </h1>
-      </div>
-
-      <div class="flex flex-1 items-center justify-end gap-8">
-        <nav
-          aria-label="Site Nav"
-          class="hidden lg:flex lg:gap-4 lg:text-xs lg:font-bold lg:uppercase lg:tracking-wide lg:text-gray-500"
-        >
-          <a
-            href="/about"
-            class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700"
-          >
-            About
-          </a>
-
-          <a
-            href="/news"
-            class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700"
-          >
-            News
-          </a>
-
-          <a
-            href="/products"
-            class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700"
-          >
-            Products
-          </a>
-
-          <a
-            href="/contact"
-            class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700"
-          >
-            Contact
-          </a>
-        </nav>
-
-        <div class="flex items-center">
-          <div class="flex items-center border-x border-gray-100">
-            <span class="border-e border-e-gray-100">
-              <a
-                href="/cart"
-                class="grid h-16 w-16 place-content-center border-b-4 border-transparent hover:border-red-700"
-              >
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                  />
-                </svg>
-
-                <span class="sr-only">Cart</span>
-              </a>
-            </span>
-
-            <span class="border-e border-e-gray-100">
-              <a
-                href="/account"
-                class="grid h-16 w-16 place-content-center border-b-4 border-transparent hover:border-red-700"
-              >
-                <svg
-                  class="h-4 w-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-
-                <span class="sr-only"> Account </span>
-              </a>
-            </span>
-
-            <span class="hidden sm:block">
-              <a
-                href="/search"
-                class="grid h-16 w-16 place-content-center border-b-4 border-transparent hover:border-red-700"
-              >
-                <svg
-                  class="h-4 w-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-
-                <span class="sr-only"> Search </span>
-              </a>
-            </span>
+{{-- <header aria-label="Site Header" class="border-b border-gray-100">
+  <div class="hidden xl:block">
+    <nav x-data="{ open: false }" class="bg-gray-800">
+      <div class="container">
+        <div class="flex items-center justify-between py-6">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <a href="#" class="text-white font-bold text-xl">Logo</a>
+            </div>
+            <div class="hidden md:block">
+              <ul class="ml-10 flex items-baseline">
+                <li class="relative" x-data="{ open: false }"  @mouseenter="open = true" @mouseleave="open = false">
+                  <a href="#" class="text-gray-300 hover:text-white px-3 py-4 font-medium">Option 1</a>
+                  <ul x-show="open"
+                  x-transition:enter="transition ease-out duration-200"
+                  x-transition:enter-start="opacity-0 transform scale-95"
+                  x-transition:enter-end="opacity-100 transform scale-100"
+                  x-transition:leave="transition ease-in duration-75"
+                  x-transition:leave-start="opacity-100 transform scale-100"
+                  x-transition:leave-end="opacity-0 transform scale-95"
+                  class="absolute z-10 bg-gray-900 text-white rounded-md shadow-lg mt-3 w-48">
+                    <li><a href="#" class="block px-4 py-2 text-sm">Submenu 1</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-sm">Submenu 2</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-white px-3 py-4 font-medium">Option 2</a>
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-white px-3 py-4 font-medium">Option 3</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="-mr-2 flex md:hidden">
+            <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <span class="sr-only">Open main menu</span>
+              <svg x-show="!open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+              <svg x-show="open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
-    </div>
+      <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95" class="md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <ul>
+            <li class="relative" x-data="{ open: false }">
+              <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 font-medium" @click="open = !open">Option 1</a>
+              <ul x-show="open" class="ml-4" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+                <li><a href="#" class="block px-4 py-2 text-sm">Submenu 1</a></li>
+                <li><a href="#" class="block px-4 py-2 text-sm">Submenu 2</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 font-medium">Option 2</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 font-medium">Option 3</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
 </header>
+ --}}
 
-<header class="banner">
-  <h1 class="h6 mb-0">
-    <a class="navbar-brand" href="{{ home_url('/') }}">
-        <img class="img-fluid desktop_logo"
-            src="@asset('images/logo.svg')"
-            alt="{!! $siteName !!}">
-        <span class="visually-hidden">{!! $siteName !!}</span>
-    </a>
-  </h1>
+<div class="bg-cover" x-data="{ openMenu : false }"
+  :class="openMenu ? 'overflow-hidden' : 'overflow-visible'">
 
-  @if (has_nav_menu('primary_navigation'))
-    <nav class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
-      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
+  <header id="superiasjdiaod" class="bg-white drop-shadow-sm py-4">
+
+    <div class="container flex justify-between items-center">
+    
+      <!-- Logo -->
+      <a href="/" class="text-lg font-bold">Logo</a>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="flex md:hidden flex-col items-center align-middle" @click="openMenu = !openMenu"
+        :aria-expanded="openMenu" aria-controls="mobile-navigation" aria-label="Navigation Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <span class="text-xs">Menu</span>
+      </button>
+
+      <!-- Main Navigations -->
+      <nav class="hidden md:flex mt-auto">
+
+        <ul class="flex flex-row gap-2">
+          <li>
+            <a href="#" class="inline-flex py-2 px-3 bg-slate-200 rounded" aria-current="true">Home</a>
+          </li>
+          <li>
+            <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">About</a>
+          </li>
+          <li>
+            <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">Articles</a>
+          </li>
+          <li>
+            <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">Contact</a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <div
+  x-data="{ navHeight: $el.clientHeight }"
+  x-init="console.log(navHeight)">
+    <!-- Pop Out Navigation -->
+    <nav id="mobile-navigation" class="fixed top-0 right-0 bottom-0 left-0 backdrop-blur-sm z-10"
+      :style="`height:calc(100vh - ${navHeight}px)`"
+      :class="openMenu ? 'visible' : 'invisible' " x-cloak>
+
+      <!-- UL Links -->
+      <ul class="absolute top-0 right-0 bottom-0 w-10/12 py-4 bg-white drop-shadow-2xl z-10 transition-all"
+        :class="openMenu ? 'translate-x-0' : 'translate-x-full'">
+
+        <li class="border-b border-inherit">
+          <a href="#" class="block p-4" aria-current="true">Home</a>
+        </li>
+        <li class="border-b border-inherit">
+          <a href="#" class="block p-4">About</a>
+        </li>
+        <li class="border-b border-inherit">
+          <a href="#" class="block p-4">Articles</a>
+        </li>
+        <li class="border-b border-inherit">
+          <a href="#" class="block p-4">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Close Button -->
+      <button class="absolute top-0 right-0 bottom-0 left-0" @click="openMenu = !openMenu" :aria-expanded="openMenu"
+        aria-controls="mobile-navigation" aria-label="Close Navigation Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute top-2 left-2" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
     </nav>
-  @endif
-</header>
+  </div>
+
+</div>
