@@ -1,97 +1,58 @@
-{{-- <header aria-label="Site Header" class="border-b border-gray-100">
-  <div class="hidden xl:block">
-    <nav x-data="{ open: false }" class="bg-gray-800">
-      <div class="container">
-        <div class="flex items-center justify-between py-6">
-          <div class="flex items-center">
-            <div class="flex-shrink-0">
-              <a href="#" class="text-white font-bold text-xl">Logo</a>
-            </div>
-            <div class="hidden md:block">
-              <ul class="ml-10 flex items-baseline">
-                <li class="relative" x-data="{ open: false }"  @mouseenter="open = true" @mouseleave="open = false">
-                  <a href="#" class="text-gray-300 hover:text-white px-3 py-4 font-medium">Option 1</a>
-                  <ul x-show="open"
-                  x-transition:enter="transition ease-out duration-200"
-                  x-transition:enter-start="opacity-0 transform scale-95"
-                  x-transition:enter-end="opacity-100 transform scale-100"
-                  x-transition:leave="transition ease-in duration-75"
-                  x-transition:leave-start="opacity-100 transform scale-100"
-                  x-transition:leave-end="opacity-0 transform scale-95"
-                  class="absolute z-10 bg-gray-900 text-white rounded-md shadow-lg mt-3 w-48">
-                    <li><a href="#" class="block px-4 py-2 text-sm">Submenu 1</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-sm">Submenu 2</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-white px-3 py-4 font-medium">Option 2</a>
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-white px-3 py-4 font-medium">Option 3</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="-mr-2 flex md:hidden">
-            <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-              <span class="sr-only">Open main menu</span>
-              <svg x-show="!open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-              <svg x-show="open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95" class="md:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <ul>
-            <li class="relative" x-data="{ open: false }">
-              <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 font-medium" @click="open = !open">Option 1</a>
-              <ul x-show="open" class="ml-4" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
-                <li><a href="#" class="block px-4 py-2 text-sm">Submenu 1</a></li>
-                <li><a href="#" class="block px-4 py-2 text-sm">Submenu 2</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 font-medium">Option 2</a>
-            </li>
-            <li>
-              <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 font-medium">Option 3</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
- --}}
-
 <div class="bg-cover sticky top-0"
-  x-data="{ openMenu : false, navHeight: $el.clientHeight }"
+  x-data="{ openMenu : false }"
   :class="openMenu ? 'overflow-hidden' : 'overflow-visible'">
 
-  <header id="y-nav" class="bg-white drop-shadow-sm py-4 z-20 relative border-b-2 border-b-black"
-    :class="$store.darkMode.on && 'bg-black text-white border-b-white'">
+  <header id="y-nav" class="drop-shadow-sm py-4 z-20 relative border-b-2 border-b-black bg-white dark:bg-dark">
 
     <div class="container flex justify-between items-center">
     
       <!-- Logo -->
-      <a href="/" class="text-lg font-bold">Logo</a>
+      <a href="/" class="text-lg font-bold dark:text-white">
+        Logo.
+      </a>
 
-      <!-- Mobile Menu Toggle -->
-      <button class="flex md:hidden flex-col items-center align-middle" @click="openMenu = !openMenu"
-        :aria-expanded="openMenu" aria-controls="mobile-navigation" aria-label="Navigation Menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <span class="text-xs">Menu</span>
-      </button>
+      <!-- Dark Mode Toggle -->
+      <div class="flex justify-center items-center">
+        <button @click="darkMode = !darkMode"
+          x-bind:aria-checked="darkMode"
+          type="button"
+          aria-checked="true">
+
+          <span x-show="darkMode">
+            <x-icons.icon-sun set="h-6 w-6 fill-white" />
+          </span>
+          <span x-show="!darkMode">
+            <x-icons.icon-moon set="h-6 w-6 fill-black" />
+          </span>
+        </button>
+      </div>
+      <!-- End Dark Mode Toggle -->
+
+      <!-- Mobile Menu Button -->
+      <div class="flex">
+        <button class="flex lg:hidden flex-col items-center align-middle"
+          x-data="{ animate: false }"
+          x-on:click="
+            openMenu = !openMenu,
+            animate = !animate"
+          x-bind:aria-expanded="openMenu" aria-controls="mobile-navigation" aria-label="Navigation Menu">
+
+          <div class="w-6 h-6 flex items-center justify-center relative">
+            <span x-bind:class="animate ? 'translate-y-0 rotate-45' : '-translate-y-2'"
+              class="transform transition w-full h-[2px] bg-current absolute rounded-md"></span>
+
+            <span x-bind:class="animate ? 'opacity-0 translate-x-3' : 'opacity-100'"
+              class="transform transition w-full h-[2px] bg-current absolute rounded-md"></span>
+
+            <span x-bind:class="animate ? 'translate-y-0 -rotate-45' : 'translate-y-2'"
+              class="transform transition w-full h-[2px] bg-current absolute rounded-md"></span>
+          </div>
+        </button>
+      </div>
+      <!-- End Mobile Menu Button -->
 
       <!-- Main Navigations -->
-      <nav class="hidden md:flex mt-auto">
+      <nav class="hidden lg:flex mt-auto">
 
         <ul class="flex flex-row gap-2">
           <li>
@@ -106,9 +67,38 @@
           <li>
             <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">Contact</a>
           </li>
-        </ul>
+          <li class="relative inline-block"
+            x-data="{ open: false }"
+            @mouseleave="open = false">
 
+            <!-- Dropdown Toggle Button -->
+            <a @mouseover="open = true" href="#" class="flex items-center p-2 rounded-md">
+              <span class="mr-4">Shop</span>
+              <span x-bind:class="open = ! open ? '': '-rotate-180'" class="transition-transform duration-500 transform">
+                <x-icons.icon-arrow set="h-4 w-4" />
+              </span>
+            </a>
+            <!-- End Dropdown Toggle Button -->
+  
+            <!-- Hover Menu -->
+            <div class="absolute right-0 py-1 bg-white rounded-lg shadow-xl min-w-max"
+              x-show="open"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 transform scale-90"
+              x-transition:enter-end="opacity-100 transform scale-100"
+              x-transition:leave="transition ease-in duration-300"
+              x-transition:leave-start="opacity-100 transform scale-100"
+              x-transition:leave-end="opacity-0 transform scale-90">
+
+              <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem, ipsum.</a>
+              <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem, ipsum dolor.</a>
+              <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem ipsum dolor sit amet.</a>
+            </div>
+            <!-- End Hover Menu -->
+          </li>
+        </ul>
       </nav>
+      <!-- End Main Navigations -->
 
     </div>
 
@@ -117,26 +107,28 @@
   <div>
     <!-- Pop Out Navigation -->
     <nav id="mobile-navigation" class="fixed top-0 right-0 bottom-0 left-0 backdrop-blur-sm z-10 mt-auto"
-      :style="`height:calc(100vh - (${navHeight}px - 2px))`"
-      :class="openMenu ? 'visible' : 'invisible' " x-cloak>
+      x-data="{navHeight: document.getElementById('y-nav').clientHeight}"
+      x-bind:style="`height:calc(100vh - ${navHeight}px)`"
+      x-bind:class="openMenu ? 'visible' : 'invisible' " x-cloak>
 
       <!-- UL Links -->
-      <ul class="absolute top-0 right-0 bottom-0 w-10/12 py-4 bg-white drop-shadow-2xl z-10 transition-all"
-        :class="openMenu ? 'translate-x-0' : 'translate-x-full', $store.darkMode.on ? 'bg-black text-white border-b-white' : ''">
+      <ul class="absolute top-0 right-0 bottom-0 w-10/12 py-4 bg-white drop-shadow-2xl z-10 transition-all dark:bg-dark"
+        :class="openMenu ? 'translate-x-0' : 'translate-x-full'">
 
-        <li class="border-b border-inherit">
+        <li class="border-b border-inherit dark:border-b-black">
           <a href="#" class="block p-4" aria-current="true">Home</a>
         </li>
-        <li class="border-b border-inherit">
+        <li class="border-b border-inherit  dark:border-b-black">
           <a href="#" class="block p-4">About</a>
         </li>
-        <li class="border-b border-inherit">
+        <li class="border-b border-inherit  dark:border-b-black">
           <a href="#" class="block p-4">Articles</a>
         </li>
-        <li class="border-b border-inherit">
+        <li class="border-b border-inherit  dark:border-b-black">
           <a href="#" class="block p-4">Contact</a>
         </li>
       </ul>
+      <!-- End UL Links -->
 
       <!-- Close Button -->
       <button class="absolute top-0 right-0 bottom-0 left-0" @click="openMenu = !openMenu" :aria-expanded="openMenu"
@@ -146,8 +138,8 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
+      <!-- End Close Button -->
 
     </nav>
   </div>
-
 </div>
