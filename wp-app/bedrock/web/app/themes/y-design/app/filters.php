@@ -37,8 +37,6 @@ add_filter( 'wp_enqueue_scripts', function () {
 /**
  * Create and add Navwalker to WP Core.
  */
-function register_navwalker (){
-    require ('app/Navigation/NavWalker.php');
-}
-
-add_action('after_setup_theme', 'register_navwalker');
+add_action('after_setup_theme', function () {
+    require ('Navigation/NavWalker.php');
+});

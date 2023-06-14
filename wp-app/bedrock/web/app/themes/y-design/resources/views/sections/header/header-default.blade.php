@@ -69,10 +69,12 @@
 </header>
  --}}
 
-<div class="bg-cover" x-data="{ openMenu : false }"
+<div class="bg-cover sticky top-0"
+  x-data="{ openMenu : false, navHeight: $el.clientHeight }"
   :class="openMenu ? 'overflow-hidden' : 'overflow-visible'">
 
-  <header id="superiasjdiaod" class="bg-white drop-shadow-sm py-4">
+  <header id="y-nav" class="bg-white drop-shadow-sm py-4 z-20 relative border-b-2 border-b-black"
+    :class="$store.darkMode.on && 'bg-black text-white border-b-white'">
 
     <div class="container flex justify-between items-center">
     
@@ -112,17 +114,15 @@
 
   </header>
 
-  <div
-  x-data="{ navHeight: $el.clientHeight }"
-  x-init="console.log(navHeight)">
+  <div>
     <!-- Pop Out Navigation -->
-    <nav id="mobile-navigation" class="fixed top-0 right-0 bottom-0 left-0 backdrop-blur-sm z-10"
-      :style="`height:calc(100vh - ${navHeight}px)`"
+    <nav id="mobile-navigation" class="fixed top-0 right-0 bottom-0 left-0 backdrop-blur-sm z-10 mt-auto"
+      :style="`height:calc(100vh - (${navHeight}px - 2px))`"
       :class="openMenu ? 'visible' : 'invisible' " x-cloak>
 
       <!-- UL Links -->
       <ul class="absolute top-0 right-0 bottom-0 w-10/12 py-4 bg-white drop-shadow-2xl z-10 transition-all"
-        :class="openMenu ? 'translate-x-0' : 'translate-x-full'">
+        :class="openMenu ? 'translate-x-0' : 'translate-x-full', $store.darkMode.on ? 'bg-black text-white border-b-white' : ''">
 
         <li class="border-b border-inherit">
           <a href="#" class="block p-4" aria-current="true">Home</a>

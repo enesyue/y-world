@@ -1,10 +1,15 @@
-import Alpine from 'alpinejs'
- 
-window.Alpine = Alpine
+import {domReady} from '@roots/sage/client';
+import { initAlpine } from './alpine/init.js';
 
-document.addEventListener("DOMContentLoaded", function() { 
-    Alpine.start()
-    //do work
-});
+const main = async (err) => {
+if (err) {
+    // handle hmr errors
+    console.error(err);
+}
 
-const clicked = document.getElementById("dropdown-depth-one");
+// application code
+initAlpine();
+};
+
+domReady(main);
+import.meta.webpackHot?.accept(main);
