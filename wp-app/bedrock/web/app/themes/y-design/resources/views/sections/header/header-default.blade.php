@@ -1,8 +1,10 @@
+<!-- Header Default -->
 <div class="bg-cover sticky top-0"
   x-data="{ openMenu : false }"
   :class="openMenu ? 'overflow-hidden' : 'overflow-visible'">
 
-  <header id="y-nav" class="drop-shadow-sm py-4 z-20 relative border-b-2 border-b-black bg-white dark:bg-dark">
+  <header id="y-nav" class="drop-shadow-sm py-4 z-20 relative border-b-2 border-b-black bg-white dark:bg-dark"
+    x-ref="header">
 
     <div class="container flex justify-between items-center">
     
@@ -53,7 +55,6 @@
 
       <!-- Main Navigations -->
       <nav class="hidden lg:flex mt-auto">
-
         <ul class="flex flex-row gap-2">
           <li>
             <a href="#" class="inline-flex py-2 px-3 bg-slate-200 rounded" aria-current="true">Home</a>
@@ -67,21 +68,23 @@
           <li>
             <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">Contact</a>
           </li>
-          <li class="relative inline-block"
+          <li class="relative inline-block py-2 px-3"
             x-data="{ open: false }"
             @mouseleave="open = false">
 
             <!-- Dropdown Toggle Button -->
-            <a @mouseover="open = true" href="#" class="flex items-center p-2 rounded-md">
+            <a class="flex items-center rounded-md" href="#"
+              @mouseover="open = true">
               <span class="mr-4">Shop</span>
-              <span x-bind:class="open = ! open ? '': '-rotate-180'" class="transition-transform duration-500 transform">
+              <span class="transition-transform duration-500 transform"
+                x-bind:class="open = ! open ? '': '-rotate-180'">
                 <x-icons.icon-arrow set="h-4 w-4" />
               </span>
             </a>
             <!-- End Dropdown Toggle Button -->
   
             <!-- Hover Menu -->
-            <div class="absolute right-0 py-1 bg-white rounded-lg shadow-xl min-w-max"
+            <ul class="absolute right-0 py-1 bg-white rounded-lg shadow-xl min-w-max"
               x-show="open"
               x-transition:enter="transition ease-out duration-300"
               x-transition:enter-start="opacity-0 transform scale-90"
@@ -93,7 +96,7 @@
               <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem, ipsum.</a>
               <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem, ipsum dolor.</a>
               <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem ipsum dolor sit amet.</a>
-            </div>
+            </ul>
             <!-- End Hover Menu -->
           </li>
         </ul>
@@ -104,10 +107,11 @@
 
   </header>
 
-  <div>
+  <div class="burger">
+
     <!-- Pop Out Navigation -->
     <nav id="mobile-navigation" class="fixed top-0 right-0 bottom-0 left-0 backdrop-blur-sm z-10 mt-auto"
-      x-data="{navHeight: document.getElementById('y-nav').clientHeight}"
+      x-data="{navHeight: $refs.header.clientHeight}"
       x-bind:style="`height:calc(100vh - ${navHeight}px)`"
       x-bind:class="openMenu ? 'visible' : 'invisible' " x-cloak>
 
@@ -127,19 +131,41 @@
         <li class="border-b border-inherit  dark:border-b-black">
           <a href="#" class="block p-4">Contact</a>
         </li>
+        <li class="border-b border-inherit dark:border-b-black"
+          x-data="{openDropdown: 0}"
+          x-on:click="openDropdown !== 1 ? openDropdown = 1 : openDropdown = null">
+          <a href="#" class="flex items-center p-4">
+            <span class="mr-4">Shop</span>
+            <span class="transition-transform duration-500 transform"
+              x-bind:class="openDropdown != 1 ? '': '-rotate-180'">
+              <x-icons.icon-arrow set="h-4 w-4" />
+            </span>
+          </a>
+          <ul class="relative overflow-hidden transition-all max-h-0 duration-500 ps-5"
+            x-ref="container"
+            x-bind:style="openDropdown == 1 ? 'max-height: ' + $refs.container.scrollHeight + 'px' : ''">
+            <li>
+              <a href="#" class="block p-4">Lorem, ipsum.</a>
+            </li>
+            <li>
+              <a href="#" class="block p-4">Lorem, ipsum dolor.</a>
+            </li>
+            <li>
+              <a href="#" class="block p-4">Lorem ipsum dolor sit amet.</a>
+            </li>
+          </ul>
+        </li>
       </ul>
       <!-- End UL Links -->
 
       <!-- Close Button -->
       <button class="absolute top-0 right-0 bottom-0 left-0" @click="openMenu = !openMenu" :aria-expanded="openMenu"
         aria-controls="mobile-navigation" aria-label="Close Navigation Menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute top-2 left-2" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
       </button>
       <!-- End Close Button -->
 
     </nav>
+    <!-- End Pop Out Navigation -->
+
   </div>
 </div>
