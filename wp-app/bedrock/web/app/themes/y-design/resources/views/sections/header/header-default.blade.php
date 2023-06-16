@@ -93,9 +93,15 @@
               x-transition:leave-start="opacity-100 transform scale-100"
               x-transition:leave-end="opacity-0 transform scale-90">
 
-              <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem, ipsum.</a>
-              <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem, ipsum dolor.</a>
-              <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem ipsum dolor sit amet.</a>
+              <li>
+                <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem, ipsum.</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem, ipsum dolor..</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem ipsum dolor sit amet.</a>
+              </li>
             </ul>
             <!-- End Hover Menu -->
           </li>
@@ -132,26 +138,26 @@
           <a href="#" class="block p-4">Contact</a>
         </li>
         <li class="border-b border-inherit dark:border-b-black"
-          x-data="{openDropdown: 0}"
-          x-on:click="openDropdown !== 1 ? openDropdown = 1 : openDropdown = null">
-          <a href="#" class="flex items-center p-4">
+          x-data="{openDropdown: 0}">
+          <a href="#" class="flex items-center p-4"
+            x-on:click="openDropdown !== 1 ? openDropdown = 1 : openDropdown = null">
             <span class="mr-4">Shop</span>
             <span class="transition-transform duration-500 transform"
               x-bind:class="openDropdown != 1 ? '': '-rotate-180'">
               <x-icons.icon-arrow set="h-4 w-4" />
             </span>
           </a>
-          <ul class="relative overflow-hidden transition-all max-h-0 duration-500 ps-5"
+          <ul class="relative overflow-hidden transition-all max-h-0 duration-500"
             x-ref="container"
             x-bind:style="openDropdown == 1 ? 'max-height: ' + $refs.container.scrollHeight + 'px' : ''">
             <li>
-              <a href="#" class="block p-4">Lorem, ipsum.</a>
+              <a href="#" class="block ps-9 p-4">Lorem, ipsum.</a>
             </li>
             <li>
-              <a href="#" class="block p-4">Lorem, ipsum dolor.</a>
+              <a href="#" class="block ps-9 p-4">Lorem, ipsum dolor.</a>
             </li>
             <li>
-              <a href="#" class="block p-4">Lorem ipsum dolor sit amet.</a>
+              <a href="#" class="block ps-9 p-4">Lorem ipsum dolor sit amet.</a>
             </li>
           </ul>
         </li>
