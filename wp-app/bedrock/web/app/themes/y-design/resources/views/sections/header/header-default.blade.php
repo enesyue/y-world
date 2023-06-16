@@ -1,7 +1,10 @@
 <!-- Header Default -->
 <div class="bg-cover sticky top-0"
-  x-data="{ openMenu : false }"
-  :class="openMenu ? 'overflow-hidden' : 'overflow-visible'">
+  x-data="{
+    openMenu : false,
+    animate: false
+  }"
+  x-bind:class="openMenu ? 'overflow-hidden' : 'overflow-visible'">
 
   <header id="y-nav" class="drop-shadow-sm py-4 z-20 relative border-b-2 border-b-black bg-white dark:bg-dark"
     x-ref="header">
@@ -12,6 +15,7 @@
       <a href="/" class="text-lg font-bold dark:text-white">
         Logo.
       </a>
+      <!-- End Logo -->
 
       <!-- Dark Mode Toggle -->
       <div class="flex justify-center items-center">
@@ -33,7 +37,7 @@
       <!-- Mobile Menu Button -->
       <div class="flex">
         <button class="flex lg:hidden flex-col items-center align-middle"
-          x-data="{ animate: false }"
+          x-data
           x-on:click="
             openMenu = !openMenu,
             animate = !animate"
@@ -72,7 +76,7 @@
             x-data="{ open: false }"
             @mouseleave="open = false">
 
-            <!-- Dropdown Toggle Button -->
+            <!-- Dropdown Hover -->
             <a class="flex items-center rounded-md" href="#"
               @mouseover="open = true">
               <span class="mr-4">Shop</span>
@@ -81,7 +85,7 @@
                 <x-icons.icon-arrow set="h-4 w-4" />
               </span>
             </a>
-            <!-- End Dropdown Toggle Button -->
+            <!-- End Dropdown Hover -->
   
             <!-- Hover Menu -->
             <ul class="absolute right-0 py-1 bg-white rounded-lg shadow-xl min-w-max"
@@ -113,6 +117,7 @@
 
   </header>
 
+  <!-- Mobile Burger Canvas -->
   <div class="burger">
 
     <!-- Pop Out Navigation -->
@@ -142,12 +147,12 @@
           <a href="#" class="flex items-center p-4"
             x-on:click="openDropdown !== 1 ? openDropdown = 1 : openDropdown = null">
             <span class="mr-4">Shop</span>
-            <span class="transition-transform duration-500 transform"
+            <span class="transition-transform duration-400 transform"
               x-bind:class="openDropdown != 1 ? '': '-rotate-180'">
               <x-icons.icon-arrow set="h-4 w-4" />
             </span>
           </a>
-          <ul class="relative overflow-hidden transition-all max-h-0 duration-500"
+          <ul class="relative overflow-hidden transition-all max-h-0 duration-400"
             x-ref="container"
             x-bind:style="openDropdown == 1 ? 'max-height: ' + $refs.container.scrollHeight + 'px' : ''">
             <li>
@@ -165,14 +170,23 @@
       <!-- End UL Links -->
 
       <!-- Close Button -->
-      <button class="absolute top-0 right-0 bottom-0 left-0" @click="openMenu = !openMenu" :aria-expanded="openMenu"
+      <button class="absolute top-0 right-0 bottom-0 left-0"
+        x-on:click="openMenu = !openMenu, animate = !animate"
+        x-ref="closeButton"
+        x-bind:aria-expanded="openMenu"
         aria-controls="mobile-navigation" aria-label="Close Navigation Menu">
       </button>
       <!-- End Close Button -->
+
+      <div
+      x-date
+      x-init="console.log($dispatch('open-me'))"></div>
 
     </nav>
     <!-- End Pop Out Navigation -->
 
   </div>
+  <!-- End Mobile Burger Canvas -->
+
 </div>
 <!-- End Header Default -->

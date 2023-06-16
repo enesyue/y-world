@@ -1,5 +1,5 @@
 export function store() {
-    return Alpine.store(
+    Alpine.store(
         'darkMode', {
             on: false,
         
