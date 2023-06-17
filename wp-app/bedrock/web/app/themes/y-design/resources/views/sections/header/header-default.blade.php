@@ -1,5 +1,5 @@
 <!-- Header Default -->
-<div class="bg-cover sticky top-0"
+<section class="bg-cover sticky top-0"
   x-data="{
     openMenu : false,
     animate: false
@@ -12,7 +12,7 @@
     <div class="container flex justify-between items-center">
     
       <!-- Logo -->
-      <a href="/" class="text-lg font-bold dark:text-white">
+      <a href="/" class="text-lg font-black font-inter dark:text-white">
         Logo.
       </a>
       <!-- End Logo -->
@@ -178,15 +178,11 @@
       </button>
       <!-- End Close Button -->
 
-      <div
-      x-date
-      x-init="console.log($dispatch('open-me'))"></div>
-
     </nav>
     <!-- End Pop Out Navigation -->
 
   </div>
   <!-- End Mobile Burger Canvas -->
 
-</div>
+</section>
 <!-- End Header Default -->

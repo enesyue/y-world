@@ -1,5 +1,6 @@
-import {domReady} from '@roots/sage/client';
+import { domReady } from '@roots/sage/client';
 import { initAlpine } from './alpine/init.js';
+import { cache } from './filters/cache.js';
 
 const main = async (err) => {
     if (err) {
@@ -8,6 +9,7 @@ const main = async (err) => {
     }
 
     // application code
+    cache();
     initAlpine();
 };
 

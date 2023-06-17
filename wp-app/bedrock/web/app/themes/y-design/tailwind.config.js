@@ -6,6 +6,10 @@ const config = {
       center: true,
       padding: '1.5rem',
     },
+    fontFamily: {
+      inter: ['Inter-tight', 'sans-serif'],
+      base: ['Inter-tight', 'sans-serif'],
+    },
     extend: {
       colors: {
         primary: '#bb004b',

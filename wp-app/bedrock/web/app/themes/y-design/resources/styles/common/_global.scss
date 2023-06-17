@@ -1,8 +1,13 @@
 // Global Settings / Body
 
-@layer base {
+body {
+    @apply text-default font-inter text-base xl:text-lg;
+}
 
-    body {
-        @apply text-default;
-    }
+.mb-last-item:last-child {
+    @apply mb-0;
+}
+
+.mt-last-item:last-child {
+    @apply mt-0;
 }
