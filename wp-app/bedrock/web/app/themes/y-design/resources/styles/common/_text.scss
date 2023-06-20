@@ -33,8 +33,16 @@ h6, .h6 {
 
 */
 
+h2, .h2 {
+    @apply text-4xl md:text-5xl xl:text-6xl leading-tight;
+}
+
 p, a {
-    @apply text-base xl:text-lg;
+    @apply text-base md:text-lg;
+}
+
+p {
+    @apply mb-4;
 }
 
 .Headline {}
