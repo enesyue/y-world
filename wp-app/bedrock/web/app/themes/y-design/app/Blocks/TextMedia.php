@@ -5,6 +5,7 @@ namespace App\Blocks;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Blocks\Base\BlockBuilder;
 
+
 class TextMedia extends BlockBuilder
 {
     public const NAME = 'text-media';
@@ -26,9 +27,8 @@ class TextMedia extends BlockBuilder
             'description'		=>__("$this->shownName", 'sage'),
             'render_callback'   => [$this, 'render'],
             'category'			=> 'y-blocks',
-            
             'keywords'			=> ['y-design', 'y-block', $this->shownName, static::NAME],
-            'mode' 				=> 'edit'
+            'mode' 				=> 'edit',
         ];
 
         parent::buildBlock($args);

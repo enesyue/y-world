@@ -66,4 +66,3 @@ collect(['setup',
             );
         }
     });
-

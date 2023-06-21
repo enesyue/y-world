@@ -6,6 +6,9 @@
 
 namespace App;
 
+use function Roots\view;
+use Illuminate\Support\Facades\View;
+
 /**
  * Add "… Continued" to the excerpt.
  *

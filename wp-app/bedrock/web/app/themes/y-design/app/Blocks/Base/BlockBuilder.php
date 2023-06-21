@@ -67,7 +67,7 @@ class BlockBuilder
      */
     public function buildBlock($args)
     {
-        acf_register_block($args);
+        acf_register_block_type($args);
     }
 
     /**
@@ -136,7 +136,7 @@ class BlockBuilder
         }
 
         echo "<div>Not found</div>";
-        
+
         return;
     }
 
@@ -148,6 +148,7 @@ class BlockBuilder
     public static function getBlocks()
     {
         $instance = new self();
-        add_action( 'admin_init', array( $instance, 'initAllBlocks' ) );
+        //add_action( 'admin_init', [ $instance, 'initAllBlocks' ] );
+        add_action('acf/init', [ $instance, 'initAllBlocks' ]);
     }
 }
