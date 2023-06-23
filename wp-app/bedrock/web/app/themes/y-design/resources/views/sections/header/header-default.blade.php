@@ -133,13 +133,13 @@
         <li class="border-b border-inherit dark:border-b-black">
           <a href="#" class="block p-4" aria-current="true">Home</a>
         </li>
-        <li class="border-b border-inherit  dark:border-b-black">
+        <li class="border-b border-inherit dark:border-b-black">
           <a href="#" class="block p-4">About</a>
         </li>
-        <li class="border-b border-inherit  dark:border-b-black">
+        <li class="border-b border-inherit dark:border-b-black">
           <a href="#" class="block p-4">Articles</a>
         </li>
-        <li class="border-b border-inherit  dark:border-b-black">
+        <li class="border-b border-inherit dark:border-b-black">
           <a href="#" class="block p-4">Contact</a>
         </li>
         <li class="border-b border-inherit dark:border-b-black"
