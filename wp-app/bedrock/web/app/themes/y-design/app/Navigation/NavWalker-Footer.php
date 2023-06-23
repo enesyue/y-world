@@ -4,7 +4,7 @@ class NavWalkerFooter extends Walker_Nav_Menu {
 
 function start_lvl(&$output,$depth  = 0,$args  = null)
 {
-
+    $test  = "";
     $output .= "";
 }
 
