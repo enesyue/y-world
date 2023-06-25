@@ -42,4 +42,5 @@ add_filter( 'wp_enqueue_scripts', function () {
  */
 add_action('after_setup_theme', function () {
     require ('Navigation/NavWalker.php');
+    require ('Navigation/NavWalkerMobile.php');
 });
