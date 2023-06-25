@@ -37,6 +37,7 @@ class Nav_Walker extends Walker_Nav_menu {
                         <span class='mr-4'>$titleName</span>
                         <span class='transition-transform duration-500 transform'
                         x-bind:class='open = ! open ? ``: `-rotate-180`'>
+                        ". view('components.icons.icon-arrow')->render() ."
                         </span>
                         </a>
                         <ul class='absolute right-0 py-1 bg-white rounded-lg shadow-xl min-w-max'

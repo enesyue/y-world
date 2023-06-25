@@ -102,7 +102,7 @@
       <!-- End UL Links -->
 
       <!-- Close Button -->
-      <button class="absolute top-0 right-0 bottom-0 left-0"
+      <button class="absolute top-0 right-0 bottom-0 left-0 h-full w-full"
         x-on:click="openMenu = !openMenu, animate = !animate"
         x-ref="closeButton"
         x-bind:aria-expanded="openMenu"

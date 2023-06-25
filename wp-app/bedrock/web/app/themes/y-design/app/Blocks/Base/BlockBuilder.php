@@ -86,6 +86,8 @@ class BlockBuilder
             ->addTrueFalse('remove_margin', [
                 'label' => __('Abstand deaktivieren'),
                 'ui' => 1,
+                'ui_on_text' => 'Nein',
+                'ui_off_text' => 'Ja',
             ])
         ; // Add margin-toggle for all blocks 
 

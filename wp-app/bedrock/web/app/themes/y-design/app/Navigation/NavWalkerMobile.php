@@ -27,6 +27,7 @@ class Nav_Walker_Mobile extends Walker_Nav_menu {
                             <span class="mr-4">'.$titleName.'</span>
                             <span class="transition-transform duration-400 transform"
                             x-bind:class="openDropdown != 1 ? ``: `-rotate-180`">
+                            '. view('components.icons.icon-arrow')->render() .'
                             </span>
                         </a>
                         <ul class="relative overflow-hidden transition-all max-h-0 duration-400"
