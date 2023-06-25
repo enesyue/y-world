@@ -26,12 +26,12 @@ class Nav_Walker_Mobile extends Walker_Nav_menu {
                             x-on:click="openDropdown !== 1 ? openDropdown = 1 : openDropdown = null">
                             <span class="mr-4">'.$titleName.'</span>
                             <span class="transition-transform duration-400 transform"
-                            x-bind:class="openDropdown != 1 ? "": "-rotate-180"">
+                            x-bind:class="openDropdown != 1 ? ``: `-rotate-180`">
                             </span>
                         </a>
                         <ul class="relative overflow-hidden transition-all max-h-0 duration-400"
                         x-ref="container"
-                        x-bind:style="openDropdown == 1 ? "max-height: " + $refs.container.scrollHeight + "px" : "">
+                        x-bind:style="openDropdown == 1 ? `max-height: ` + $refs.container.scrollHeight + `px` : ``">
                         ';
                         
               
