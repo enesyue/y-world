@@ -6,6 +6,9 @@
 
 namespace App;
 
+use function Roots\view;
+use Illuminate\Support\Facades\View;
+
 /**
  * Add "… Continued" to the excerpt.
  *
@@ -15,6 +18,9 @@ add_filter('excerpt_more', function () {
     return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('Continued', 'sage'));
 });
 
+/**
+ * Remove WP specific scripts / styles / emojis.
+ */
 add_filter( 'wp_enqueue_scripts', function () {
     wp_dequeue_script( 'jquery');
     wp_deregister_script( 'jquery');
@@ -29,4 +35,12 @@ add_filter( 'wp_enqueue_scripts', function () {
 	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
 	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );	
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+});
+
+/**
+ * Create and add Navwalker to WP Core.
+ */
+add_action('after_setup_theme', function () {
+    require ('Navigation/NavWalker.php');
+    require ('Navigation/NavWalkerMobile.php');
 });

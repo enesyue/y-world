@@ -1,5 +1,10 @@
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?>
+class=""
+  x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+  x-bind:class="{ 'dark': darkMode }">
+
 <head>
     <meta name="description" content="<?php if (is_single()) {
       single_post_title('', true);
@@ -29,7 +34,7 @@
     <?php wp_head(); ?>
   </head>
 
-  <body <?php body_class(); ?>>
+  <body <?php body_class('dark:bg-dark'); ?>>
     <?php wp_body_open(); ?>
     <?php do_action('get_header'); ?>
 

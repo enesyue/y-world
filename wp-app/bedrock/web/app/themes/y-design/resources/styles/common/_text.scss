@@ -1,42 +1,50 @@
 // Headings / Headlines / General Purpose Text
 
-@layer base {
-
-    h1, .h1 {
-        font-size: 4rem;
-        line-height: 110%;
-    }
-
-    h2, .h2 {
-        font-size: 3.5rem;
-        line-height: 110%;
-        hyphens: auto;
-    }
-
-    h3, .h3 {
-        font-size: 3rem;
-        line-height: 110%;
-    }
-
-    h4, .h4 {
-        font-size: 2.5rem;
-        line-height: 110%;
-    }
-
-    h5, .h5 {
-        font-size: 2rem;
-        line-height: 110%;
-    }
-
-    h6, .h6 {
-        font-size: 1.5rem;
-        line-height: 110%;
-    }
-
-    // Text
-
-    p, a {
-        font-size: 1rem;
-        line-height: 150%;
-    }
+/* h1, .h1 {
+    font-size: 4rem;
+    line-height: 110%;
 }
+
+h2, .h2 {
+    font-size: 3.5rem;
+    line-height: 110%;
+    hyphens: auto;
+}
+
+h3, .h3 {
+    font-size: 3rem;
+    line-height: 110%;
+}
+
+h4, .h4 {
+    font-size: 2.5rem;
+    line-height: 110%;
+}
+
+h5, .h5 {
+    font-size: 2rem;
+    line-height: 110%;
+}
+
+h6, .h6 {
+    font-size: 1.5rem;
+    line-height: 110%;
+}
+
+*/
+
+h2, .h2 {
+    @apply text-4xl md:text-5xl xl:text-6xl leading-tight;
+}
+
+p, a {
+    @apply text-base md:text-lg;
+}
+
+p {
+    @apply mb-4;
+}
+
+.Headline {}
+
+.Sub-headline {}
