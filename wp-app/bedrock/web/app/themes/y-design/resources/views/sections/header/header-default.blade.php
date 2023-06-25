@@ -60,55 +60,15 @@
       <!-- Main Navigations -->
       <nav class="hidden lg:flex mt-auto">
         <ul class="flex flex-row gap-2">
-          <li>
-            <a href="#" class="inline-flex py-2 px-3 bg-slate-200 rounded" aria-current="true">Home</a>
-          </li>
-          <li>
-            <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">About</a>
-          </li>
-          <li>
-            <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">Articles</a>
-          </li>
-          <li>
-            <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">Contact</a>
-          </li>
-          <li class="relative inline-block py-2 px-3"
-            x-data="{ open: false }"
-            @mouseleave="open = false">
-
-            <!-- Dropdown Hover -->
-            <a class="flex items-center rounded-md" href="#"
-              @mouseover="open = true">
-              <span class="mr-4">Shop</span>
-              <span class="transition-transform duration-500 transform"
-                x-bind:class="open = ! open ? '': '-rotate-180'">
-                <x-icons.icon-arrow set="h-4 w-4" />
-              </span>
-            </a>
-            <!-- End Dropdown Hover -->
-  
-            <!-- Hover Menu -->
-            <ul class="absolute right-0 py-1 bg-white rounded-lg shadow-xl min-w-max"
-              x-show="open"
-              x-transition:enter="transition ease-out duration-300"
-              x-transition:enter-start="opacity-0 transform scale-90"
-              x-transition:enter-end="opacity-100 transform scale-100"
-              x-transition:leave="transition ease-in duration-300"
-              x-transition:leave-start="opacity-100 transform scale-100"
-              x-transition:leave-end="opacity-0 transform scale-90">
-
-              <li>
-                <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem, ipsum.</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem, ipsum dolor..</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-1 hover:bg-gray-100">Lorem ipsum dolor sit amet.</a>
-              </li>
-            </ul>
-            <!-- End Hover Menu -->
-          </li>
+          @if (has_nav_menu('primary_navigation'))
+          {!! wp_nav_menu(['theme_location' => 'primary_navigation',  
+          'container' => false,
+          'walker' => new Nav_Walker("inline-flex py-2 px-3 hover:bg-slate-200 rounded","block px-4 py-1 hover:bg-gray-100") ,
+          'echo' => false,
+          'depth' => 0,
+          'items_wrap' => '%3$s' 
+          ])!!}
+      @endif
         </ul>
       </nav>
       <!-- End Main Navigations -->
@@ -129,43 +89,15 @@
       <!-- UL Links -->
       <ul class="absolute top-0 right-0 bottom-0 w-10/12 py-4 bg-white drop-shadow-2xl z-10 transition-all dark:bg-dark"
         :class="openMenu ? 'translate-x-0' : 'translate-x-full'">
-
-        <li class="border-b border-inherit dark:border-b-black">
-          <a href="#" class="block p-4" aria-current="true">Home</a>
-        </li>
-        <li class="border-b border-inherit  dark:border-b-black">
-          <a href="#" class="block p-4">About</a>
-        </li>
-        <li class="border-b border-inherit  dark:border-b-black">
-          <a href="#" class="block p-4">Articles</a>
-        </li>
-        <li class="border-b border-inherit  dark:border-b-black">
-          <a href="#" class="block p-4">Contact</a>
-        </li>
-        <li class="border-b border-inherit dark:border-b-black"
-          x-data="{openDropdown: 0}">
-          <a href="#" class="flex items-center p-4"
-            x-on:click="openDropdown !== 1 ? openDropdown = 1 : openDropdown = null">
-            <span class="mr-4">Shop</span>
-            <span class="transition-transform duration-400 transform"
-              x-bind:class="openDropdown != 1 ? '': '-rotate-180'">
-              <x-icons.icon-arrow set="h-4 w-4" />
-            </span>
-          </a>
-          <ul class="relative overflow-hidden transition-all max-h-0 duration-400"
-            x-ref="container"
-            x-bind:style="openDropdown == 1 ? 'max-height: ' + $refs.container.scrollHeight + 'px' : ''">
-            <li>
-              <a href="#" class="block ps-9 p-4">Lorem, ipsum.</a>
-            </li>
-            <li>
-              <a href="#" class="block ps-9 p-4">Lorem, ipsum dolor.</a>
-            </li>
-            <li>
-              <a href="#" class="block ps-9 p-4">Lorem ipsum dolor sit amet.</a>
-            </li>
-          </ul>
-        </li>
+        @if (has_nav_menu('primary_navigation'))
+        {!! wp_nav_menu(['theme_location' => 'primary_navigation',  
+        'container' => false,
+        'walker' => new Nav_Walker_Mobile() ,
+        'echo' => false,
+        'depth' => 0,
+        'items_wrap' => '%3$s' 
+        ])!!}
+    @endif
       </ul>
       <!-- End UL Links -->
 
