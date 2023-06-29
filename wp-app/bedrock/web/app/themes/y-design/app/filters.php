@@ -44,3 +44,20 @@ add_action('after_setup_theme', function () {
     require ('Navigation/NavWalker.php');
     require ('Navigation/NavWalkerMobile.php');
 });
+
+/**
+ * Display our new "Copyright" field
+ *
+ * @param int $attachment_id
+ *
+ * @return array
+ */
+function get_attachment_copyright($attachment_id = null)
+{
+    $attachment_id = ( empty($attachment_id) ) ? get_post_thumbnail_id() : (int) $attachment_id;
+
+    if ($attachment_id) {
+        return get_post_meta($attachment_id, '_copyright', true);
+    }
+    return null;
+}

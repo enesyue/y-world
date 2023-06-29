@@ -1,4 +1,4 @@
-<div class="page-header">
+<section class="page-header">
   {{-- <h1>{!! $title !!}</h1> --}}
   @php(\App\Navigation\Breadcrumb::show(true))
-</div>
+</section>

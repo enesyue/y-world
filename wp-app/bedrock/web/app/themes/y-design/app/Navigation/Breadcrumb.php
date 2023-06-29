@@ -290,24 +290,31 @@ class Breadcrumb
         $rowsLinks = count($links);
 
         ?>
-        <div id="page-breadcrumb">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                <li class="breadcrumb-item <?= (!$links ? 'active' : '') ?>"><a href="<?= get_home_url(); ?>" class="text-default fw-normal"><?= $showHomeIcon ? '<span class="material-symbols-outlined">home</span>' : bloginfo('title') ?></a></li>
+        <div id="Breadcrumb">
+            <nav aria-label="Breadcrumb">
+                <ol class="flex items-center gap-1 text-sm">
+                <li class="breadcrumb-item <?= (!$links ? 'active' : '') ?>">
+                    <a href="<?= get_home_url(); ?>">
+                        <?= $showHomeIcon ? view('components.icons.icon-home')->render() : bloginfo('title') ?>
+                    </a>
+                </li>
                 <?php // If total amount of elements within the array is below 3, show every element as a click-able breadcrumb-link. ?>
                     <?php if ($rowsLinks < 3) : ?>
                         <?php foreach ($links as $index => $link) : ?>
-                            <li class="breadcrumb-item <?= ($index == $rowsLinks - 1 ? 'active' : '') ?>" <?= ($index == $rowsLinks - 1 ? ' aria-current="page"' : '') ?>><?= $link; ?></li>
+                            <li class="breadcrumb-item flex items-center <?= ($index == $rowsLinks - 1 ? 'active' : '') ?>" <?= ($index == $rowsLinks - 1 ? ' aria-current="page"' : '') ?>>
+                                <span class="rotate-[270deg] inline-block"> <?= view('components.icons.icon-arrow')->render() ?> </span>
+                                <span class="inline-block"><?= $link; ?></span>
+                            </li>
                         <?php endforeach; ?>
                         <?php // If the array exceeds 3 elements, hide every other link except for the home-icon, the collapse-span & the last 2 elements of the array.  ?>
                     <?php else : ?>
                         <li id="breadcrumb-collapse" class="breadcrumb-item text-decoration-underline cursor-pointer">...</li>
                         <?php foreach ($links as $index => $link) : ?>
-                            <li class="breadcrumb-item <?= ($index < $rowsLinks - 2 ? 'd-none' : '') ?><?= ($index == $rowsLinks - 1 ? ' active' : '') ?>"
+                            <li class="breadcrumb-item <?= ($index < $rowsLinks - 2 ? 'hidden' : '') ?><?= ($index == $rowsLinks - 1 ? ' active' : '') ?>"
                             <?= ($index == $rowsLinks - 1 ? ' aria-current="page"' : '') ?> >
                                 <?= $link; ?>
                             </li>
-                        <?php endforeach; ?>
+                        <?php endforeach; ?>d
                     <?php endif; ?>
                 </ol>
             </nav>
